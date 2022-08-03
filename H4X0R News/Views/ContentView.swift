@@ -14,12 +14,21 @@ struct ContentView: View {
     var body: some View {
         NavigationView {
             List(networkManager.posts) { post in
-                NavigationLink(destination: DetailView(url: post.url)) {
-                    HStack {
-                        Text(String(post.points))
-                        Text(post.title)
+                if let url = post.url {
+                    
+                    Link(destination: URL(string: url)!) {
+                        HStack {
+                            Text(String(post.points))
+                            Text(post.title)
+                            Spacer()
+                            Text(">")
+                                .fontWeight(.bold)
+                                .foregroundColor(Color.blue)
+                        }
                     }
+                    .foregroundColor(.black)
                 }
+                
             }
             .navigationTitle("H4X0R NEWS")
         }
