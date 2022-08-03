@@ -12,6 +12,8 @@ struct ContentView: View {
     @ObservedObject var networkManager = NetworkManager()
     
     var body: some View {
+        
+        
         NavigationView {
             List(networkManager.posts) { post in
                 if let url = post.url {
@@ -19,7 +21,8 @@ struct ContentView: View {
                     Link(destination: URL(string: url)!) {
                         HStack {
                             Text(String(post.points))
-                            Text(post.title)
+                                .foregroundColor(Color("TextColour"))
+                            Text(post.title).foregroundColor(Color("TextColour"))
                             Spacer()
                             Text(">")
                                 .fontWeight(.bold)
@@ -28,7 +31,6 @@ struct ContentView: View {
                     }
                     .foregroundColor(.black)
                 }
-                
             }
             .navigationTitle("H4X0R NEWS")
         }
