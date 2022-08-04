@@ -51,7 +51,7 @@ struct PostLayout: View {
             Spacer()
             Text(linkArrow ?? "")
                 .fontWeight(.bold)
-                .foregroundColor(Color.blue)
+                .foregroundColor(Color.black)
         }
     }
 }
